@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BELUGAISM | The Recelous Rite</title>
+    <style>
+      /* THE SACRED CURSOR - Updated Filename Only */
+      html,
+      body {
+        cursor: url("Beluga-Cursor.png"), auto;
+      }
+
+      /* Make sure clickable things still show the custom cursor or a pointer */
+      a,
+      button,
+      .sacred-play-btn,
+      .beluga-img {
+        cursor: url("Beluga-Cursor.png"), pointer;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: "Times New Roman", serif;
+        color: white;
+        background-color: #0d0202;
+        overflow: hidden;
+        height: 100vh;
+      }
+
+      .bg-layer {
+        position: fixed;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background-image: linear-gradient(
+            rgba(0, 0, 0, 0.85),
+            rgba(0, 0, 0, 0.85)
+          ),
+          url("a.belugaism.png");
+        background-size: cover;
+        background-position: center;
+        z-index: -10;
+        animation: bgRotate 150s linear infinite;
+      }
+
+      @keyframes bgRotate {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      @keyframes bubbleDrift {
+        0% {
+          left: -400px;
+          opacity: 1;
+        }
+        45% {
+          opacity: 0.05;
+        }
+        55% {
+          opacity: 0.05;
+        }
+        100% {
+          left: 100%;
+          opacity: 1;
+        }
+      }
+
+      @keyframes bubbleShake {
+        0%,
+        100% {
+          transform: rotate(-8deg) translateY(0);
+        }
+        50% {
+          transform: rotate(8deg) translateY(-15px);
+        }
+      }
+
+      @keyframes twinOrbit {
+        from {
+          transform: rotate(0deg) translateX(12px) rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg) translateX(12px) rotate(-360deg);
+        }
+      }
+
+      .beluga-bubble {
+        position: fixed;
+        z-index: 5;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        animation: bubbleDrift 25s linear infinite;
+      }
+
+      .beluga-img {
+        width: 95px;
+        filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.3));
+        animation: bubbleShake 4s ease-in-out infinite;
+        transition: all 0.3s ease;
+      }
+
+      .twin-spirit-box {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        justify-content: center;
+        width: 160px;
+        height: 100px;
+      }
+
+      .twin-spirit-box img {
+        width: 70px;
+        filter: drop-shadow(0 0 10px gold);
+        animation: twinOrbit 6s linear infinite;
+      }
+
+      .sacred-play-btn {
+        width: 160px;
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        filter: drop-shadow(0 0 10px gold);
+        border-radius: 15px;
+      }
+
+      .sacred-play-btn.playing {
+        animation: bubbleShake 0.5s ease-in-out infinite;
+        filter: drop-shadow(0 0 40px #00d4ff);
+      }
+
+      .message {
+        background: white;
+        color: black;
+        padding: 5px 10px;
+        border-radius: 12px;
+        font-size: 0.75rem;
+        font-weight: bold;
+        font-family: "Comic Sans MS", cursive;
+        position: absolute;
+        bottom: 110px;
+        opacity: 0;
+        transition: opacity 0.3s;
+        white-space: nowrap;
+        border: 2px solid gold;
+        pointer-events: none;
+        z-index: 1001;
+      }
+
+      .beluga-bubble:hover {
+        animation-play-state: paused;
+        opacity: 1 !important;
+        z-index: 1000;
+      }
+      .beluga-bubble:hover .message {
+        opacity: 1;
+      }
+
+      .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        text-align: center;
+        pointer-events: none;
+      }
+
+      .holy-altar {
+        position: relative;
+        z-index: 20;
+        background: rgba(10, 0, 0, 0.96);
+        border: 5px double #ffd700;
+        padding: 30px;
+        border-radius: 25px;
+        max-width: 450px;
+        backdrop-filter: blur(25px);
+        pointer-events: auto;
+      }
+
+      .monkee-lord-static {
+        width: 140px;
+        margin-bottom: 10px;
+        border: 2px solid #ffd700;
+        border-radius: 10px;
+      }
+
+      h1 {
+        font-size: 2.8rem;
+        color: #ffd700;
+        letter-spacing: 10px;
+        margin: 5px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="bg-layer"></div>
+
+    <audio id="hymn" loop>
+      <source src="Monkee Beluga.mp3" type="audio/mpeg" />
+    </audio>
+
+    <div
+      class="beluga-bubble"
+      style="top: 40%; animation-duration: 20s; animation-delay: -5s"
+    >
+      <div class="message">"Two Vessels, One Sacred Law."</div>
+      <div class="twin-spirit-box">
+        <img src="MONKEE.png" alt="Monkee" />
+        <img src="belugacatbloxd.webp" alt="Beluga" />
+      </div>
+    </div>
+
+    <div
+      class="beluga-bubble"
+      style="top: 5%; animation-duration: 22s; animation-delay: -2s"
+    >
+      <div class="message">"The Banana is the only Truth."</div>
+      <img src="BelugaClowwenAlien.png" class="beluga-img" />
+    </div>
+
+    <div
+      class="beluga-bubble"
+      style="top: 15%; animation-duration: 26s; animation-delay: -12s"
+    >
+      <div class="message">"Hehe... for the Lord knows all."</div>
+      <img src="BelugaClowwenPray.png" class="beluga-img" />
+    </div>
+
+    <div
+      class="beluga-bubble"
+      style="top: 25%; animation-duration: 24s; animation-delay: -18s"
+    >
+      <div class="message">"I have glimpsed the Golden Peel!"</div>
+      <img src="BelugaClowwenCoolShocked.png" class="beluga-img" />
+    </div>
+
+    <div
+      class="beluga-bubble"
+      style="top: 55%; animation-duration: 21s; animation-delay: -8s"
+    >
+      <div class="message">"THE ETERNAL HEHE RESONATES!"</div>
+      <img src="BelugaRagePray.png" class="beluga-img" />
+    </div>
+
+    <div
+      class="beluga-bubble"
+      style="top: 70%; animation-duration: 28s; animation-delay: -1s"
+    >
+      <div class="message">"Drift into the Great Purity."</div>
+      <img src="BelugaClowwenGreyPray.png" class="beluga-img" />
+    </div>
+
+    <div
+      class="beluga-bubble"
+      style="top: 82%; animation-duration: 23s; animation-delay: -15s"
+    >
+      <div class="message">"Silent is the Monk, loud is the Banana."</div>
+      <img src="BelugaClowwenCoolPray.png" class="beluga-img" />
+    </div>
+
+    <div
+      class="beluga-bubble"
+      style="top: 92%; animation-duration: 30s; animation-delay: -25s"
+    >
+      <div class="message">"The Fool laughs, but the Lord smiles."</div>
+      <img src="BelugaClowwen.png" class="beluga-img" />
+    </div>
+
+    <div class="container">
+      <div class="holy-altar">
+        <img
+          src="MonkeeBelugaLordImage.png"
+          class="monkee-lord-static"
+          alt="The Lord"
+        />
+        <h1>BELUGAISM</h1>
+        <p style="color: #ffd700; font-style: italic; font-size: 0.8rem">
+          "Peel the layers of reality."
+        </p>
+
+        <div style="margin-top: 20px">
+          <img
+            src="beluga.webp"
+            id="playButton"
+            class="sacred-play-btn"
+            onclick="toggleMusic()"
+          />
+        </div>
+        <p
+          id="statusText"
+          style="margin-top: 15px; font-size: 0.6rem; opacity: 0.5"
+        >
+          [ STATUS: SILENT ]
+        </p>
+      </div>
+    </div>
+
+    <script>
+      const audio = document.getElementById("hymn");
+      const btn = document.getElementById("playButton");
+      const status = document.getElementById("statusText");
+
+      function toggleMusic() {
+        if (audio.paused) {
+          audio.play();
+          btn.classList.add("playing");
+          status.innerText = "[ STATUS: RESONATING ]";
+          status.style.color = "#00d4ff";
+        } else {
+          audio.pause();
+          btn.classList.remove("playing");
+          status.innerText = "[ STATUS: SILENT ]";
+          status.style.color = "white";
+        }
+      }
+    </script>
+  </body>
+</html>
