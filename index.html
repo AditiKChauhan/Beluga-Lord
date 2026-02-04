@@ -5,18 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>BELUGAISM | The Recelous Rite</title>
     <style>
-      /* THE SACRED CURSOR - Updated Filename Only */
-      html,
-      body {
-        cursor: url("Beluga-Cursor.png"), auto;
+      /* THE SACRED CURSOR - THE ULTIMATE FIX */
+      /* We use * to force it onto every single element on the page */
+      * {
+        cursor: url("./Beluga-Cursor.png"), auto !important;
       }
 
-      /* Make sure clickable things still show the custom cursor or a pointer */
-      a,
-      button,
-      .sacred-play-btn,
-      .beluga-img {
-        cursor: url("Beluga-Cursor.png"), pointer;
+      /* Ensuring clickable items don't switch back to the default pointer */
+      a, button, .sacred-play-btn, .beluga-img, [onclick] {
+        cursor: url("./Beluga-Cursor.png"), pointer !important;
       }
 
       body {
@@ -46,49 +43,23 @@
         animation: bgRotate 150s linear infinite;
       }
 
-      @keyframes bgRotate {
-        from {
-          transform: rotate(0deg);
-        }
-        to {
-          transform: rotate(360deg);
-        }
-      }
+      @keyframes bgRotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 
       @keyframes bubbleDrift {
-        0% {
-          left: -400px;
-          opacity: 1;
-        }
-        45% {
-          opacity: 0.05;
-        }
-        55% {
-          opacity: 0.05;
-        }
-        100% {
-          left: 100%;
-          opacity: 1;
-        }
+        0% { left: -400px; opacity: 1; }
+        45% { opacity: 0.05; }
+        55% { opacity: 0.05; }
+        100% { left: 100%; opacity: 1; }
       }
 
       @keyframes bubbleShake {
-        0%,
-        100% {
-          transform: rotate(-8deg) translateY(0);
-        }
-        50% {
-          transform: rotate(8deg) translateY(-15px);
-        }
+        0%, 100% { transform: rotate(-8deg) translateY(0); }
+        50% { transform: rotate(8deg) translateY(-15px); }
       }
 
       @keyframes twinOrbit {
-        from {
-          transform: rotate(0deg) translateX(12px) rotate(0deg);
-        }
-        to {
-          transform: rotate(360deg) translateX(12px) rotate(-360deg);
-        }
+        from { transform: rotate(0deg) translateX(12px) rotate(0deg); }
+        to { transform: rotate(360deg) translateX(12px) rotate(-360deg); }
       }
 
       .beluga-bubble {
@@ -205,10 +176,7 @@
       <source src="Monkee Beluga.mp3" type="audio/mpeg" />
     </audio>
 
-    <div
-      class="beluga-bubble"
-      style="top: 40%; animation-duration: 20s; animation-delay: -5s"
-    >
+    <div class="beluga-bubble" style="top: 40%; animation-duration: 20s; animation-delay: -5s">
       <div class="message">"Two Vessels, One Sacred Law."</div>
       <div class="twin-spirit-box">
         <img src="MONKEE.png" alt="Monkee" />
@@ -216,88 +184,50 @@
       </div>
     </div>
 
-    <div
-      class="beluga-bubble"
-      style="top: 5%; animation-duration: 22s; animation-delay: -2s"
-    >
+    <div class="beluga-bubble" style="top: 5%; animation-duration: 22s; animation-delay: -2s">
       <div class="message">"The Banana is the only Truth."</div>
       <img src="BelugaClowwenAlien.png" class="beluga-img" />
     </div>
 
-    <div
-      class="beluga-bubble"
-      style="top: 15%; animation-duration: 26s; animation-delay: -12s"
-    >
+    <div class="beluga-bubble" style="top: 15%; animation-duration: 26s; animation-delay: -12s">
       <div class="message">"Hehe... for the Lord knows all."</div>
       <img src="BelugaClowwenPray.png" class="beluga-img" />
     </div>
 
-    <div
-      class="beluga-bubble"
-      style="top: 25%; animation-duration: 24s; animation-delay: -18s"
-    >
+    <div class="beluga-bubble" style="top: 25%; animation-duration: 24s; animation-delay: -18s">
       <div class="message">"I have glimpsed the Golden Peel!"</div>
       <img src="BelugaClowwenCoolShocked.png" class="beluga-img" />
     </div>
 
-    <div
-      class="beluga-bubble"
-      style="top: 55%; animation-duration: 21s; animation-delay: -8s"
-    >
+    <div class="beluga-bubble" style="top: 55%; animation-duration: 21s; animation-delay: -8s">
       <div class="message">"THE ETERNAL HEHE RESONATES!"</div>
       <img src="BelugaRagePray.png" class="beluga-img" />
     </div>
 
-    <div
-      class="beluga-bubble"
-      style="top: 70%; animation-duration: 28s; animation-delay: -1s"
-    >
+    <div class="beluga-bubble" style="top: 70%; animation-duration: 28s; animation-delay: -1s">
       <div class="message">"Drift into the Great Purity."</div>
       <img src="BelugaClowwenGreyPray.png" class="beluga-img" />
     </div>
 
-    <div
-      class="beluga-bubble"
-      style="top: 82%; animation-duration: 23s; animation-delay: -15s"
-    >
+    <div class="beluga-bubble" style="top: 82%; animation-duration: 23s; animation-delay: -15s">
       <div class="message">"Silent is the Monk, loud is the Banana."</div>
       <img src="BelugaClowwenCoolPray.png" class="beluga-img" />
     </div>
 
-    <div
-      class="beluga-bubble"
-      style="top: 92%; animation-duration: 30s; animation-delay: -25s"
-    >
+    <div class="beluga-bubble" style="top: 92%; animation-duration: 30s; animation-delay: -25s">
       <div class="message">"The Fool laughs, but the Lord smiles."</div>
       <img src="BelugaClowwen.png" class="beluga-img" />
     </div>
 
     <div class="container">
       <div class="holy-altar">
-        <img
-          src="MonkeeBelugaLordImage.png"
-          class="monkee-lord-static"
-          alt="The Lord"
-        />
+        <img src="MonkeeBelugaLordImage.png" class="monkee-lord-static" alt="The Lord" />
         <h1>BELUGAISM</h1>
-        <p style="color: #ffd700; font-style: italic; font-size: 0.8rem">
-          "Peel the layers of reality."
-        </p>
-
+        <p style="color: #ffd700; font-style: italic; font-size: 0.8rem">"Peel the layers of reality."</p>
         <div style="margin-top: 20px">
-          <img
-            src="beluga.webp"
-            id="playButton"
-            class="sacred-play-btn"
-            onclick="toggleMusic()"
-          />
+          <img src="beluga.webp" id="playButton" class="sacred-play-btn" onclick="toggleMusic()" />
         </div>
-        <p
-          id="statusText"
-          style="margin-top: 15px; font-size: 0.6rem; opacity: 0.5"
-        >
-          [ STATUS: SILENT ]
-        </p>
+        <p id="statusText" style="margin-top: 15px; font-size: 0.6rem; opacity: 0.5">[ STATUS: SILENT ]</p>
       </div>
     </div>
 
